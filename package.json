@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hubgit/fetch-resource.git"
+    "url": "git+https://github.com/hubgit/fetch-collection.git"
   },
   "author": "Alf Eaton",
   "license": "ISC",
