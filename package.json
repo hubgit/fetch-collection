@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "babel lib -d dist",
-    "pretest": "npm run build",
     "test": "jest --runInBand test",
     "example": "babel-node $NODE_DEBUG_OPTION examples/github.js"
   },
@@ -19,7 +18,8 @@
     "dist"
   ],
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "ogen": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",

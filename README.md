@@ -19,22 +19,20 @@ yarn add fetch-collection
 ```js
 var collection = require('fetch-collection')
 
-async function iterate (items) {
-  for await (let item of items) {
-    // do something with item
-  }
-}
-
-const items = collection('https://api.github.com/search/repositories', {
+collection('https://api.github.com/search/repositories', {
   q: 'language:javascript',
   sort: 'stars',
   order: 'desc'
+}).json({
+    data: (response, body) => body.items,
+}).subscribe(page => {
+  for (let item of page.data) {
+    // do something with item
+  }
 })
-
-iterate(items)
 
 ```
 
 ### Custom parsing
 
-Extend the PaginatedCollection class and override the `data` and `next` methods to parse the response as required.
+Pass `data` and `next` functions as options to the `json` method to control extraction and pagination respectively.
