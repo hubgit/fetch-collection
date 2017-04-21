@@ -1,0 +1,62 @@
+{
+  "name": "fetch-collection",
+  "version": "0.0.1",
+  "description": "A minimal interface for fetching paginated resources from the web",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel lib -d dist",
+    "pretest": "npm run build",
+    "test": "jest --runInBand test",
+    "example": "babel-node $NODE_DEBUG_OPTION examples/github.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubgit/fetch-resource.git"
+  },
+  "author": "Alf Eaton",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.2",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "jest": "next",
+    "parse-link-header": "^0.4.1",
+    "standard": "^10.0.2"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "standard",
+    "parserOptions": {
+      "ecmaVersion": 7
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true,
+      "jest": true,
+      "jasmine": true
+    }
+  },
+  "babel": {
+    "presets": [
+      "stage-2",
+      [
+        "env",
+        {
+          "targets": {
+            "node": 6,
+            "browsers": [
+              "last 2 versions"
+            ]
+          }
+        }
+      ]
+    ]
+  }
+}
