@@ -19,15 +19,20 @@ yarn add fetch-collection
 ```js
 var collection = require('fetch-collection')
 
+async function iterate () {
+  for await (let item of items) {
+    // do something with item
+  }
+}
+
 const items = collection('https://api.github.com/search/repositories', {
   q: 'language:javascript',
   sort: 'stars',
   order: 'desc'
 })
 
-for await (let item of items) {
-  // do something with item
-}
+iterate(items)
+
 ```
 
 ### Custom parsing
