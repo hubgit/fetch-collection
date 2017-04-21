@@ -1,7 +1,7 @@
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
 
 const resource = require('../lib')
-const NextLinkHeader = require('../lib/NextLinkHeader')
+const nextLinkHeader = require('next-fetch-link-header')
 
 test('adds an encoded query string to the url', () => {
   const collection = resource('https://api.github.com/search/repositories', {
@@ -26,7 +26,7 @@ test('fetches an array', (done) => {
   }).json({
     total: (response, body) => body.total_count,
     data: (response, body) => body.items,
-    next: NextLinkHeader,
+    next: nextLinkHeader,
     limit: 2 // only fetch 2 pages
   }).subscribe(page => {
     // console.log(page)

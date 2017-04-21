@@ -2364,6 +2364,12 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
+next-fetch-link-header@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/next-fetch-link-header/-/next-fetch-link-header-0.0.1.tgz#43b05a2e330bb591f151b3b47662ecb8e4ea48bc"
+  dependencies:
+    parse-link-header "^0.4.1"
+
 node-fetch@^1.0.1:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"

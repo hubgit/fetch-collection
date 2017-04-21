@@ -21,14 +21,14 @@
   ],
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "ogen": "^2.0.0",
-    "parse-link-header": "^0.4.1"
+    "ogen": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
     "babel-preset-env": "^1.4.0",
     "babel-preset-stage-2": "^6.24.1",
     "jest": "next",
+    "next-fetch-link-header": "^0.0.1",
     "rimraf": "^2.6.1",
     "standard": "^10.0.2"
   },
