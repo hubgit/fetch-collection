@@ -19,7 +19,7 @@ yarn add fetch-collection
 ```js
 var collection = require('fetch-collection')
 
-async function iterate () {
+async function iterate (items) {
   for await (let item of items) {
     // do something with item
   }

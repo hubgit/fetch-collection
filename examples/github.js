@@ -16,14 +16,16 @@ class GitHubCollection extends PaginatedCollection {
   }
 }
 
-async function example () {
-  let collection = new GitHubCollection('https://api.github.com/search/code', {
-    q: 'test user:hubgit'
-  })
-
-  for await (let item of collection) {
+async function iterate (items) {
+  for await (let item of items) {
     console.log('item', item)
   }
 }
 
-example()
+let items = new GitHubCollection('https://api.github.com/search/code', {
+  q: 'test user:hubgit'
+})
+
+iterate(items).then(() => {
+  console.log('finished!')
+})
