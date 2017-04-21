@@ -1,6 +1,7 @@
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
 
 const resource = require('../lib')
+const NextLinkHeader = require('../lib/NextLinkHeader')
 
 test('adds an encoded query string to the url', () => {
   const collection = resource('https://api.github.com/search/repositories', {
@@ -16,17 +17,25 @@ test('adds an encoded query string to the url', () => {
 })
 
 test('fetches an array', (done) => {
+  let pages = 0
+
   resource('https://api.github.com/search/repositories', {
     q: 'language:javascript',
     sort: 'stars',
     order: 'desc'
   }).json({
-    data: async (response, body) => body.items,
-    limit: 1
-  }).subscribe(data => {
-    expect(data).toHaveLength(30)
-    done()
+    total: (response, body) => body.total_count,
+    data: (response, body) => body.items,
+    next: NextLinkHeader,
+    limit: 2 // only fetch 2 pages
+  }).subscribe(page => {
+    // console.log(page)
+    pages++
+    expect(page.data).toHaveLength(30)
   }, error => {
     done.fail(error)
+  }, () => {
+    expect(pages).toBe(2)
+    done()
   })
 })

@@ -4,6 +4,8 @@
   "description": "A minimal interface for fetching paginated resources from the web",
   "main": "dist/index.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
     "build": "babel lib -d dist",
     "test": "jest --runInBand test",
     "example": "babel-node $NODE_DEBUG_OPTION examples/github.js"
@@ -19,14 +21,15 @@
   ],
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "ogen": "^2.0.0"
+    "ogen": "^2.0.0",
+    "parse-link-header": "^0.4.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
     "babel-preset-env": "^1.4.0",
     "babel-preset-stage-2": "^6.24.1",
     "jest": "next",
-    "parse-link-header": "^0.4.1",
+    "rimraf": "^2.6.1",
     "standard": "^10.0.2"
   },
   "eslintConfig": {

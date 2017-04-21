@@ -5,12 +5,6 @@ A wrapper for [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
 ## Install
 
 ```js
-npm install fetch-collection
-```
-
-or
-
-```js
 yarn add fetch-collection
 ```
 
@@ -24,7 +18,9 @@ collection('https://api.github.com/search/repositories', {
   sort: 'stars',
   order: 'desc'
 }).json({
-    data: (response, body) => body.items,
+   data: (response, body) => body.items, // return data
+   next: (response, body) => body.links.next, // return a string (URL) or an object (params)
+   limit: 3 // only fetch the first 3 pages
 }).subscribe(page => {
   for (let item of page.data) {
     // do something with item
@@ -32,7 +28,3 @@ collection('https://api.github.com/search/repositories', {
 })
 
 ```
-
-### Custom parsing
-
-Pass `data` and `next` functions as options to the `json` method to control extraction and pagination respectively.
