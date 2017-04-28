@@ -2,13 +2,9 @@
   "name": "fetch-collection",
   "version": "0.3.0",
   "description": "A minimal interface for fetching paginated resources from the web",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "clean": "rimraf dist",
-    "prebuild": "npm run clean",
-    "build": "babel lib -d dist",
-    "test": "jest --runInBand test",
-    "example": "babel-node $NODE_DEBUG_OPTION examples/github.js"
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
@@ -17,49 +13,26 @@
   "author": "Alf Eaton",
   "license": "ISC",
   "files": [
-    "dist"
+    "lib"
   ],
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "ogen": "^2.0.0"
+    "rest-collection-stream": "^0.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.2",
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "jest": "next",
-    "next-fetch-link-header": "^0.0.1",
-    "rimraf": "^2.6.1",
+    "jest": "^19.0.2",
+    "next-link-header": "^0.1.1",
     "standard": "^10.0.2"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
     "extends": "standard",
     "parserOptions": {
-      "ecmaVersion": 7
+      "ecmaVersion": 6
     },
     "env": {
-      "es6": true,
       "node": true,
       "browser": true,
       "jest": true,
       "jasmine": true
     }
-  },
-  "babel": {
-    "presets": [
-      "stage-2",
-      [
-        "env",
-        {
-          "targets": {
-            "node": 6,
-            "browsers": [
-              "last 2 versions"
-            ]
-          }
-        }
-      ]
-    ]
   }
 }
