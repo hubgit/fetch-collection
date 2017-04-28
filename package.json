@@ -1,6 +1,6 @@
 {
   "name": "fetch-collection",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal interface for fetching paginated resources from the web",
   "main": "lib/index.js",
   "scripts": {
